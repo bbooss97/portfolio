@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/ - OPTIMIZED FOR MAXIMUM PERFORMANCE
+// https://vitejs.dev/config/ - OPTIMIZED FOR GITHUB PAGES
 export default defineConfig({
   plugins: [react()],
+  base: '/portfolio/', // Sostituisci 'portfolio' con il nome del tuo repository
   build: {
     minify: 'terser',
     terserOptions: {
