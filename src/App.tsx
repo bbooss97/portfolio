@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import { useScrollAnimation, ScrollToTop } from './hooks';
 import { TypingAnimation, MagneticButton, useScrollReveal } from './components/AdvancedEffects';
