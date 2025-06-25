@@ -1,0 +1,508 @@
+/* Ultra Effects CSS */
+
+.neural-network {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.matrix-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+/* Holographic Cards */
+.holographic-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(100, 200, 255, 0.1), rgba(150, 100, 255, 0.1));
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  border-radius: 15px;
+  backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.holographic-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(100, 200, 255, 0.1),
+    transparent,
+    rgba(150, 100, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.holographic-card:hover::before {
+  transform: rotate(45deg) translate(10%, 10%);
+}
+
+.holographic-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+    rgba(100, 200, 255, 0.2) 0%, 
+    transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.holographic-card:hover::after {
+  opacity: 1;
+}
+
+/* Quantum Loader */
+.quantum-loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(10px);
+}
+
+.quantum-loader {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.quantum-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid transparent;
+  border-radius: 50%;
+  animation: quantumSpin 2s linear infinite;
+}
+
+.quantum-ring:nth-child(1) {
+  width: 60px;
+  height: 60px;
+  border-top-color: #64c8ff;
+  animation-duration: 1s;
+}
+
+.quantum-ring:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  border-right-color: #9664ff;
+  animation-duration: 2s;
+  animation-direction: reverse;
+}
+
+.quantum-ring:nth-child(3) {
+  width: 140px;
+  height: 140px;
+  border-bottom-color: #ff6496;
+  animation-duration: 3s;
+}
+
+.quantum-particles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.quantum-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #64c8ff, transparent);
+  border-radius: 50%;
+  animation: quantumOrbit 3s linear infinite;
+  transform-origin: 80px 0;
+  transform: rotate(calc(var(--i) * 30deg));
+}
+
+.quantum-text {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #64c8ff;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  animation: quantumPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes quantumSpin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes quantumOrbit {
+  0% { 
+    transform: rotate(calc(var(--i) * 30deg)) translateX(80px) rotate(0deg);
+    opacity: 1;
+  }
+  50% { 
+    opacity: 0.3;
+  }
+  100% { 
+    transform: rotate(calc(var(--i) * 30deg + 360deg)) translateX(80px) rotate(-360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes quantumPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* DNA Helix */
+.dna-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 200px;
+  perspective: 400px;
+}
+
+.dna-helix {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: dnaRotate 10s linear infinite;
+  transform-style: preserve-3d;
+}
+
+.dna-pair {
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  top: calc(var(--i) * 10px);
+  transform: rotateY(calc(var(--i) * 18deg));
+  animation: dnaPulse 2s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+.dna-base {
+  position: absolute;
+  width: 12px;
+  height: 4px;
+  background: linear-gradient(45deg, #64c8ff, #9664ff);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(100, 200, 255, 0.5);
+}
+
+.dna-left {
+  left: 0;
+  transform: translateZ(20px);
+}
+
+.dna-right {
+  right: 0;
+  transform: translateZ(-20px);
+}
+
+.dna-connection {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  background: linear-gradient(to right, #64c8ff, #9664ff);
+  transform: translateY(-50%);
+}
+
+@keyframes dnaRotate {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+@keyframes dnaPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Cyber Grid */
+.cyber-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.grid-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, #0f3460, transparent);
+  animation: gridPulse 4s ease-in-out infinite;
+}
+
+.grid-line.horizontal {
+  width: 100%;
+  height: 1px;
+  top: calc(var(--i) * 5%);
+  animation-delay: calc(var(--i) * 0.2s);
+}
+
+.grid-line.vertical {
+  width: 1px;
+  height: 100%;
+  left: calc(var(--i) * 5%);
+  background: linear-gradient(0deg, transparent, #0f3460, transparent);
+  animation-delay: calc(var(--i) * 0.15s);
+}
+
+.grid-scanner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #64c8ff, transparent);
+  animation: gridScan 8s linear infinite;
+  box-shadow: 0 0 20px #64c8ff;
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes gridScan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+/* Plasma Ball */
+.plasma-ball {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+}
+
+.plasma-core {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(100, 200, 255, 0.3), rgba(150, 100, 255, 0.1));
+  animation: plasmaCore 3s ease-in-out infinite;
+  overflow: hidden;
+}
+
+.plasma-bolt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(0deg, transparent, #64c8ff, transparent);
+  transform-origin: 0 20px;
+  transform: translate(-50%, -50%) rotate(calc(var(--i) * 45deg));
+  animation: plasmaBolt 2s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.25s);
+  border-radius: 1px;
+  box-shadow: 0 0 8px #64c8ff;
+}
+
+@keyframes plasmaCore {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 30px rgba(100, 200, 255, 0.5);
+  }
+  50% { 
+    transform: scale(1.1);
+    box-shadow: 0 0 50px rgba(100, 200, 255, 0.8);
+  }
+}
+
+@keyframes plasmaBolt {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 45deg)) scaleY(0.5);
+  }
+  50% { 
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 45deg)) scaleY(1.2);
+  }
+}
+
+/* Data Stream */
+.data-stream-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+.data-stream {
+  position: absolute;
+  left: calc(var(--delay) * 20%);
+  top: -50px;
+  width: 2px;
+  height: 100vh;
+  animation: dataFlow 5s linear infinite;
+  animation-delay: calc(var(--delay) * 1s);
+}
+
+.data-bit {
+  color: #0f3460;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  margin-bottom: 5px;
+  animation: dataBit 0.5s ease-in-out infinite;
+}
+
+@keyframes dataFlow {
+  0% { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes dataBit {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Additional Ultra Effects */
+.quantum-field {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(100, 200, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(150, 100, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(100, 150, 255, 0.1) 0%, transparent 50%);
+  animation: quantumField 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -3;
+}
+
+@keyframes quantumField {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(1) rotate(0deg);
+  }
+  33% { 
+    opacity: 0.6;
+    transform: scale(1.1) rotate(120deg);
+  }
+  66% { 
+    opacity: 0.4;
+    transform: scale(0.9) rotate(240deg);
+  }
+}
+
+.cyber-text {
+  font-family: 'Courier New', monospace;
+  background: linear-gradient(45deg, #64c8ff, #9664ff, #64c8ff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: cyberTextFlow 3s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(100, 200, 255, 0.5);
+}
+
+@keyframes cyberTextFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.ultra-glow {
+  filter: drop-shadow(0 0 20px rgba(100, 200, 255, 0.7));
+  animation: ultraGlow 2s ease-in-out infinite;
+}
+
+@keyframes ultraGlow {
+  0%, 100% { 
+    filter: drop-shadow(0 0 20px rgba(100, 200, 255, 0.7));
+  }
+  50% { 
+    filter: drop-shadow(0 0 40px rgba(100, 200, 255, 1));
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dna-container {
+    display: none;
+  }
+  
+  .plasma-ball {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .quantum-loader {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .quantum-ring:nth-child(1) { width: 40px; height: 40px; }
+  .quantum-ring:nth-child(2) { width: 70px; height: 70px; }
+  .quantum-ring:nth-child(3) { width: 100px; height: 100px; }
+  
+  .quantum-particle {
+    transform-origin: 50px 0;
+  }
+}
+
+/* Performance Optimization */
+.holographic-card,
+.quantum-loader,
+.dna-helix,
+.plasma-core {
+  will-change: transform;
+}
+
+.neural-network,
+.matrix-rain,
+.cyber-grid,
+.data-stream-container {
+  will-change: opacity;
+}

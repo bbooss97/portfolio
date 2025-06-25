@@ -445,37 +445,6 @@ section {
   transform: translateY(-2px);
 }
 
-/* Languages Section */
-.languages-grid {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.language-item {
-  background: rgba(100, 200, 255, 0.05);
-  border: 1px solid rgba(100, 200, 255, 0.2);
-  border-radius: 15px;
-  padding: 2rem;
-  text-align: center;
-  min-width: 200px;
-  flex: 1;
-}
-
-.language-item h3 {
-  color: #64c8ff;
-  margin-bottom: 0.5rem;
-  font-size: 1.3rem;
-}
-
-.language-item p {
-  color: #a0a0a0;
-  font-size: 1rem;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .nav-links {
