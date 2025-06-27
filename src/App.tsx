@@ -91,6 +91,7 @@ function App() {
                 <span className="skill-tag">Azure ContainerApps</span>
                 <span className="skill-tag">Docker</span>
                 <span className="skill-tag">Terraform</span>
+                <span className="skill-tag">Kubernetes</span>
                 <span className="skill-tag">Jenkins</span>
                 <span className="skill-tag">OpenShift</span>
                 <span className="skill-tag">CI/CD</span>
