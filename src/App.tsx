@@ -227,7 +227,7 @@ function App() {
       <main>
         <section className="hero" id="about" ref={setHeroRef}>
           <div className={`hero-content ${heroVisible ? 'revealed' : ''}`}>
-            <div className="eyebrow">AI systems that move from prototype to production</div>
+            <div className="eyebrow">AI & Cloud Engineering Portfolio</div>
             <h1 className="hero-title">Andrea Morelli</h1>
             <h2 className="hero-subtitle">
               <TypingAnimation text="AI & Cloud Engineer" speed={52} />
@@ -291,7 +291,7 @@ function App() {
           <div className="container">
             <div className="section-heading">
               <span>Experience</span>
-              <h2>Enterprise projects with real constraints.</h2>
+              <h2>Enterprise projects.</h2>
             </div>
             <div className="case-grid">
               {caseStudies.map((caseStudy, index) => (
@@ -340,8 +340,8 @@ function App() {
         <section className="projects" id="projects">
           <div className="container">
             <div className="section-heading">
-              <span>Selected work</span>
-              <h2>Research-minded engineering, shipped cleanly.</h2>
+              <span>University projects</span>
+              <h2>Academic projects and applied engineering.</h2>
             </div>
             <div className="projects-grid">
               {projects.map((project) => (
@@ -406,7 +406,7 @@ function App() {
           <div className="container contact-content">
             <div className="section-heading compact">
               <span>Contact</span>
-              <h2>Build the next AI system.</h2>
+              <h2>Let&apos;s get in touch.</h2>
             </div>
             <div className="contact-links">
               <MagneticButton href="mailto:morelliandrea9999@gmail.com" className="contact-link">
