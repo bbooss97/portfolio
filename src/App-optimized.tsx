@@ -35,7 +35,6 @@ function App() {
           <h2 className="hero-subtitle">
             <TypingAnimation text="AI & Cloud Engineer" speed={80} />
           </h2>
-          <p className="hero-location">🌐 Abruzzo, Italy | Remote Available</p>
           <div className="hero-description">
             <p>
               AI & Cloud Engineer specializing in intelligent systems, 
@@ -222,7 +221,6 @@ function App() {
         <div className="container">
           <h2 className="section-title">Get In Touch</h2>
           <div className="contact-content">
-            <p>Looking for flexible, remote-first roles with impactful projects.</p>
             <div className="contact-links">
               <MagneticButton href="mailto:morelliandrea9999@gmail.com" className="contact-link">
                 📧 Email

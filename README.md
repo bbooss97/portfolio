@@ -113,7 +113,6 @@ src/
 - **Email**: morelliandrea9999@gmail.com
 - **GitHub**: [https://github.com/bbooss97](https://github.com/bbooss97)
 - **LinkedIn**: [Andrea Morelli](https://www.linkedin.com/in/andrea-morelli-6628831b8/)
-- **Location**: Abruzzo, Italy (Available for Remote Work)
 
 ## 📄 License
 
