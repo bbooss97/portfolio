@@ -1,6 +1,7 @@
 import './App.css';
-import { useScrollAnimation, ScrollToTop } from './hooks';
-import { TypingAnimation, MagneticButton, useScrollReveal } from './components/AdvancedEffects';
+import { useScrollAnimation, useScrollReveal } from './hooks';
+import { TypingAnimation, MagneticButton } from './components/AdvancedEffects';
+import { ScrollToTop } from './components/ScrollToTop';
 
 function App() {
   const isScrolled = useScrollAnimation();

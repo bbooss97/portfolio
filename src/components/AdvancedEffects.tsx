@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Super lightweight typing animation
 interface TypingAnimationProps {
@@ -79,34 +79,3 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
   );
 };
 
-// Lightweight scroll reveal hook
-export const useScrollReveal = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect(); // Stop observing once visible
-        }
-      },
-      { threshold: 0.1, rootMargin: '50px' }
-    );
-
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const setElementRef = (element: HTMLElement | null) => {
-    if (element) {
-      elementRef.current = element;
-    }
-  };
-
-  return { isVisible, setElementRef };
-};

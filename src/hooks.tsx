@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const useScrollAnimation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,40 +15,33 @@ export const useScrollAnimation = () => {
   return isScrolled;
 };
 
-export const ScrollToTop = () => {
+export const useScrollReveal = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+  const setElementRef = (element: HTMLElement | null) => {
+    if (element) {
+      elementRef.current = element;
+    }
   };
 
-  if (!isVisible) {
-    return null;
-  }
-
-  return (
-    <button
-      onClick={scrollToTop}
-      className="scroll-to-top"
-      aria-label="Scroll to top"
-    >
-      ↑
-    </button>
-  );
+  return { isVisible, setElementRef };
 };

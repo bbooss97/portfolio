@@ -37,8 +37,8 @@ export const GeometricShape: React.FC<GeometricShapeProps> = ({
   position, 
   animationDelay = 0 
 }) => {
-  const getShapeStyle = () => {
-    const baseStyle: any = {
+  const getShapeStyle = (): React.CSSProperties => {
+    const baseStyle: React.CSSProperties = {
       width: `${size}px`,
       height: `${size}px`,
       position: 'absolute' as const,
